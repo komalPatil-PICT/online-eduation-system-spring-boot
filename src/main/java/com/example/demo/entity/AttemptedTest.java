@@ -13,6 +13,9 @@ import com.example.demo.convertor.AnswerSheetConvertor;
 public class AttemptedTest {
 	
 	private Long test_id;
+	private Integer std;
+	private String subject;
+	private Long rollNo;
 	
 	@Convert(converter = AnswerSheetConvertor.class)
 	@Column(columnDefinition = "json")
@@ -24,9 +27,13 @@ public class AttemptedTest {
 		super();
 	}
 
-	public AttemptedTest(Long test_id, List<AnswerSheet> answerSheet, Integer score) {
+	public AttemptedTest(Long test_id, Integer std, String subject, Long rollNo, List<AnswerSheet> answerSheet,
+			Integer score) {
 		super();
 		this.test_id = test_id;
+		this.std = std;
+		this.subject = subject;
+		this.rollNo = rollNo;
 		this.answerSheet = answerSheet;
 		this.score = score;
 	}
@@ -37,6 +44,30 @@ public class AttemptedTest {
 
 	public void setTest_id(Long test_id) {
 		this.test_id = test_id;
+	}
+
+	public Integer getStd() {
+		return std;
+	}
+
+	public void setStd(Integer std) {
+		this.std = std;
+	}
+
+	public String getSubject() {
+		return subject;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+
+	public Long getRollNo() {
+		return rollNo;
+	}
+
+	public void setRollNo(Long rollNo) {
+		this.rollNo = rollNo;
 	}
 
 	public List<AnswerSheet> getAnswerSheet() {
@@ -57,7 +88,7 @@ public class AttemptedTest {
 
 	@Override
 	public String toString() {
-		return "AttemptedTest [test_id=" + test_id + ", answerSheet=" + answerSheet + ", score=" + score + "]";
+		return "AttemptedTest [test_id=" + test_id + ", std=" + std + ", subject=" + subject + ", rollNo=" + rollNo
+				+ ", answerSheet=" + answerSheet + ", score=" + score + "]";
 	}
-	
 }
