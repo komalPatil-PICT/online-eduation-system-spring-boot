@@ -8,7 +8,7 @@ import javax.persistence.Id;
 public class TeacherRegistration {
 	@Id
 	@GeneratedValue
-	long teacher_id;
+	Long teacher_id;
 	String fullname;
 	String username;
 	String email;
