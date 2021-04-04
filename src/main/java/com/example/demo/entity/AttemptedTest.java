@@ -6,11 +6,17 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 import com.example.demo.convertor.AnswerSheetConvertor;
 
 @Entity
 public class AttemptedTest {
+	
+	@Id
+	@GeneratedValue
+	private Integer id;
 	
 	private Long test_id;
 	private Integer std;
@@ -36,6 +42,14 @@ public class AttemptedTest {
 		this.rollNo = rollNo;
 		this.answerSheet = answerSheet;
 		this.score = score;
+	}
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public Long getTest_id() {
