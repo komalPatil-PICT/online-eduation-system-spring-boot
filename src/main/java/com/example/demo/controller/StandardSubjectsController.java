@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +21,7 @@ import com.example.demo.exception.SubjectException;
 import com.example.demo.service.StandardSubjectsService;
 
 @RestController
-@RequestMapping("/standardSubjects")
+@RequestMapping("/higherAuthority/standardSubjects")
 public class StandardSubjectsController {
 
 	@Autowired
@@ -54,5 +55,15 @@ public class StandardSubjectsController {
 			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
 		}
 	}
-
+	//localhost:8080/higherAuthority/standardSubjects/teacher/2
+		@GetMapping("/teacher/{id}")
+		public ResponseEntity<List<StandardSubjects>> getAllRowsByTeacherId(@PathVariable Long id) {
+			List<StandardSubjects> subList = null;
+			try {
+				subList = stdSubService.findAllByTeacherId(id);
+				return new ResponseEntity<>(subList, HttpStatus.OK);
+			} catch (StandardSubjectException e) {
+				throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
+			}
+		}
 }

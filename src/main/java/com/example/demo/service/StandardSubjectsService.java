@@ -12,4 +12,5 @@ public interface StandardSubjectsService {
 
 	public StandardSubjects assignSubjectsToStandard(StandardSubjectDO standardSubjectDo)throws StandardSubjectException;
 	public List<StandardSubjects> getAllRows()throws StandardSubjectException;
+	public List<StandardSubjects> findAllByTeacherId(Long id)throws StandardSubjectException;
 }

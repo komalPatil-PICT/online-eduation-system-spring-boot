@@ -21,7 +21,7 @@ import com.example.demo.service.StandardService;
 import com.example.demo.service.TeacherService;
 
 @RestController
-@RequestMapping("/teacherRegistration")
+@RequestMapping("/higherAuthority/teacherRegistration")
 public class TeacherControllerKomal {
 	
 	@Autowired

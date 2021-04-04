@@ -71,4 +71,19 @@ public class StandardSubjectsServiceImpl implements StandardSubjectsService{
 		}
 	}
 
+	@Override
+	public List<StandardSubjects> findAllByTeacherId(Long id) throws StandardSubjectException {
+		List<StandardSubjects> stdList = null;
+		try {
+			stdList = standardSubjectsRepository.findAllByTeacherId(id);
+			if (stdList.size() != 0) {
+				return stdList;
+			} else {
+				throw new StandardSubjectException("No rows in the database with given teacher id");
+			}
+		}catch (DataAccessException e) {
+			throw new StandardSubjectException(e.getMessage(), e);
+		}
+		
+	}
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,9 +19,9 @@ import com.example.demo.entity.Subject;
 import com.example.demo.exception.StandardException;
 import com.example.demo.exception.SubjectException;
 import com.example.demo.service.SubjectService;
-
+@CrossOrigin("*")
 @RestController
-@RequestMapping("/subject")
+@RequestMapping("/higherAuthority/subject")
 public class SubjectController {
 	
 	@Autowired
