@@ -32,6 +32,12 @@ public class StudentController
 		return studentService.getTimetable(std);
 	}
 	
+	@GetMapping("/scheduledtest/{std}")
+	public List<OnlineTest> getScheduledTests(@PathVariable("std") int std)
+	{
+		return studentService.getScheduledTest(std);
+	}
+	
 	@GetMapping("/onlinetest/{test_id}")
 	public OnlineTest getOnlineTest(@PathVariable("test_id") Long test_id)
 	{

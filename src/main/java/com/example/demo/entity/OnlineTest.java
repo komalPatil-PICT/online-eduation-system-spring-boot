@@ -14,6 +14,8 @@ import com.example.demo.convertor.QuestionDescConvertor;
 public class OnlineTest {
 	@Id
 	long testId;
+	
+	int std;
 	int totalMarks;
 	int totalQuestions;
 	float time;
@@ -23,12 +25,13 @@ public class OnlineTest {
 
 	@Convert(converter = QuestionDescConvertor.class)
 	@Column(columnDefinition = "json")
-	private List<QuestionDesc> questions = new ArrayList();
+	private List<QuestionDesc> questions = new ArrayList<QuestionDesc>();
 
-	public OnlineTest(long testId, int totalMarks, int totalQuestions, float time, String createdDate,
+	public OnlineTest(long testId, int std, int totalMarks, int totalQuestions, float time, String createdDate,
 			String conductedDate, String status, List<QuestionDesc> questions) {
 
 		this.testId = testId;
+		this.std = std;
 		this.totalMarks = totalMarks;
 		this.totalQuestions = totalQuestions;
 		this.time = time;
@@ -40,6 +43,14 @@ public class OnlineTest {
 
 	public OnlineTest() {
 
+	}
+
+	public int getStd() {
+		return std;
+	}
+
+	public void setStd(int std) {
+		this.std = std;
 	}
 
 	public String getCreatedDate() {
